@@ -1,0 +1,7 @@
+{
+  "name": "ionictailwind ",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "vue-vite"
+}
