@@ -1,39 +1,51 @@
-import { createRouter, createWebHistory } from '@ionic/vue-router';
-import { RouteRecordRaw } from 'vue-router';
-import TabsPage from '../views/TabsPage.vue'
+import { createRouter, createWebHistory } from "@ionic/vue-router";
+import { RouteRecordRaw } from "vue-router";
+import TabsPage from "../views/TabsPage.vue";
 
 const routes: Array<RouteRecordRaw> = [
   {
-    path: '/',
-    redirect: '/tabs/tab1'
+    path: "/",
+    redirect: "/tabs/Homepage",
   },
   {
-    path: '/tabs/',
+    path: "/tabs/",
     component: TabsPage,
     children: [
       {
-        path: '',
-        redirect: '/tabs/tab1'
+        path: "",
+        redirect: "/tabs/Home",
       },
       {
-        path: 'tab1',
-        component: () => import('@/views/Tab1Page.vue')
+        path: "Home",
+        component: () => import("@/views/TabsPages/Homepage.vue"),
       },
       {
-        path: 'tab2',
-        component: () => import('@/views/Tab2Page.vue')
+        path: "Videos",
+        component: () => import("@/views/TabsPages/Videos.vue"),
       },
       {
-        path: 'tab3',
-        component: () => import('@/views/Tab3Page.vue')
-      }
-    ]
-  }
-]
+        path: "Friends",
+        component: () => import("@/views/TabsPages/Friends.vue"),
+      },
+      {
+        path: "Marketplace",
+        component: () => import("@/views/TabsPages/Marketplace.vue"),
+      },
+      {
+        path: "Notifications",
+        component: () => import("@/views/TabsPages/Notifications.vue"),
+      },
+      {
+        path: "Menu",
+        component: () => import("@/views/TabsPages/Menu.vue"),
+      },
+    ],
+  },
+];
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
