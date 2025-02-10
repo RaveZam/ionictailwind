@@ -46,6 +46,7 @@ import {
   searchCircleSharp,
   paperPlaneSharp,
   image,
+  happySharp,
 } from "ionicons/icons";
 
 addIcons({
@@ -59,6 +60,7 @@ addIcons({
   searchCircleSharp,
   paperPlaneSharp,
   image,
+  happySharp,
 });
 
 const app = createApp(App).use(IonicVue).use(router);

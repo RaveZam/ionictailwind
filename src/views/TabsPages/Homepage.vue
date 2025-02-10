@@ -6,7 +6,7 @@
           <div>
             <ion-img
               class="w-42 invert brightness-10 translate-y-[-8px]"
-              src="../../../public/appimages/logofb.png"
+              src="/appimages/logofb.png"
             ></ion-img>
           </div>
           <div class="gap-x-2 flex mx-4 items-center">
@@ -18,16 +18,19 @@
       </ion-toolbar>
     </ion-header>
 
-    <WhatsOnYourMind />
-
     <ion-content :fullscreen="true">
-      <div class="justify-center flex items-center h-full"></div>
+      <WhatsOnYourMind />
+      <StoriesComponent />
+      <PostsComponent />
     </ion-content>
   </ion-page>
 </template>
 
 <script setup lang="ts">
+import StoriesComponent from "@/components/StoriesComponent.vue";
 import WhatsOnYourMind from "@/components/WhatsOnYourMind.vue";
+import PostsComponent from "@/components/PostsComponent.vue";
+import { Ref } from "vue";
 import {
   IonPage,
   IonHeader,
