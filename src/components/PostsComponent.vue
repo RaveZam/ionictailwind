@@ -16,13 +16,16 @@
       <IonImg :src="post.postContent"></IonImg>
 
       <IonToolbar>
-        <ion-icon
+        <ionIcon
           v-for="reaction in getTopReactions(post)"
           :key="reaction.type"
           :icon="reactionIcons[reaction.type]"
-          class="reaction-icon"
-        >
-        </ion-icon>
+          :class="[
+            'text-2xl',
+            reaction.type === 'love' ? 'text-red-500' : 'text-green-200',
+            reaction.type === 'funny' ? 'text-yellow-500' : 'text-green-200',
+          ]"
+        />
         <span> {{ getTotalReactions(post.postReact) }}</span>
       </IonToolbar>
 
@@ -34,6 +37,8 @@
 </template>
 
 <script setup lang="ts">
+import { BsCalendar4Range } from "@kalimahapps/vue-icons";
+
 import {
   IonButton,
   IonCard,
@@ -53,16 +58,23 @@ import {
   sadSharp,
   flame,
   eye,
+  alertCircleSharp,
 } from "ionicons/icons";
 
-import { computed, ref } from "vue";
+import { ref } from "vue";
+
+import {
+  FlFilledEmojiSurprise,
+  FlFilledEmojiLaugh,
+  BxHeartCircle,
+} from "@kalimahapps/vue-icons";
 
 const reactionIcons: Record<string, string> = {
   funny: happySharp,
   love: heartSharp,
   like: thumbsUpSharp,
   sad: sadSharp,
-  wow: eye,
+  wow: FlFilledEmojiSurprise,
   angry: flame,
 };
 
