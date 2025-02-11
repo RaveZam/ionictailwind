@@ -15,22 +15,24 @@
 
       <IonImg :src="post.postContent"></IonImg>
 
-      <IonToolbar>
+      <IonToolbar class="m-2">
         <ionIcon
           v-for="reaction in getTopReactions(post)"
           :key="reaction.type"
           :icon="reactionIcons[reaction.type]"
           :class="[
-            'text-2xl',
-            reaction.type === 'love' ? 'text-red-500' : 'text-green-200',
-            reaction.type === 'funny' ? 'text-yellow-500' : 'text-green-200',
+            'text-2xl ml-[-4px]',
+            reaction.type === 'love' ? 'text-red-500' : '',
+            reaction.type === 'funny' ? 'text-yellow-500' : '',
+            reaction.type === 'like' ? 'text-blue-500' : '',
+            reaction.type === 'funny' ? 'text-yellow-500' : '',
           ]"
         />
         <span> {{ getTotalReactions(post.postReact) }}</span>
       </IonToolbar>
 
       <IonToolbar>
-        <span>//ICONS GO HERE</span>
+        <span> ICONS GO HERE </span>
       </IonToolbar>
     </IonCard>
   </div>
@@ -74,7 +76,7 @@ const reactionIcons: Record<string, string> = {
   love: heartSharp,
   like: thumbsUpSharp,
   sad: sadSharp,
-  wow: FlFilledEmojiSurprise,
+  // wow: FlFilledEmojiSurprise,
   angry: flame,
 };
 
